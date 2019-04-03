@@ -1,0 +1,16 @@
+msgid ""
+msgstr ""
+"Language : en\n"
+"Plural-Forms : nplurals=2; plural=(n != 1);\n"
+"MIME-Version : 1.0\n"
+"Content-Type : text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding : 8bit\n"
+
+#: src/components/info/ExTestComponent.js 13:11
+msgid "Your Name is:"
+msgstr ""
+
+#: src/components/info/ExTestComponent.js 19:11
+msgid "Just doing a test"
+msgstr ""
+
