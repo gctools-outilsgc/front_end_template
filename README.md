@@ -107,7 +107,7 @@ The template already comes prepared to deploy your front-end to Github Pages. Fi
 "homepage": "http://username.github.io/repo",
 ```
 
-Then run `yarn deploy-gh-pages` (give it a moment to build. It could take a while :wink:)
+Then run `yarn deploy` (give it a moment to build. It could take a while :wink:)
 
 :warning: Watch and make sure your `config` or `env` files do not get pushed with the build!
 
