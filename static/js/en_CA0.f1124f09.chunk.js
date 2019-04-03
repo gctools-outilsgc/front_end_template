@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{550:function(s,a){s.exports={domain:"messages",locale_data:{messages:{"":{domain:"messages",plural_forms:"nplurals=2; plural=(n != 1)",lang:"en_CA"},"Your Name is:":[""],"Just doing a test":[""]}}}}}]);
+//# sourceMappingURL=en_CA0.f1124f09.chunk.js.map
