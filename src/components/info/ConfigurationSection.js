@@ -16,7 +16,7 @@ export function ConfigSection() {
         <h2>Configuration</h2>
         <p>
           To get started with the front-end template, you will need to
-           create a <code>oidcConfig.dev.js</code> file in the
+           update the <code>oidcConfig.dev.js</code> file in the
           <code> src</code> directory to connect to your OpenID
             authentication provider. The file should follow this format:
         </p>
