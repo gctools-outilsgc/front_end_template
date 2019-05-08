@@ -1,0 +1,91 @@
+/*
+  Styles
+*/
+/* using "gn-" prefix for now */
+
+/* Fake "Browser" to hold globalnav*/
+.gn-story-holder {
+  border:2px solid black;
+  background-color: white;
+  width: 80%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.gn-holder {
+  height: 100vh;
+  width: 275px;
+  background: #fafafa;
+  /* Change to absolute? */
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transition: transform 0.45s ease-out;
+  -moz-transition: transform 0.45s ease-out;
+  -o-transition: transform 0.45s ease-out;
+  transition: transform 0.45s ease-out;
+  z-index: 9999 !important;
+}
+
+.gn-minimize {
+  -ms-transform: translateX(180px);
+  -moz-transform: translateX(180px);
+  -webkit-transform: translateX(180px);
+  transform: translateX(180px);
+}
+
+.top_bar{
+  background-image: linear-gradient(to right, #137991, #15A3A6);
+  display: flex;
+}
+
+.containerGoC {
+position: relative;
+display: inline-block;
+padding: 0.5em;
+color: #fff;
+width: 30% !important;
+z-index: 50;
+}
+
+.containerGoC:after {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #000;
+-webkit-transform-origin: 100% 0;
+-ms-transform-origin: 100% 0;
+transform-origin: 100% 0;
+-webkit-transform: skew(-45deg);
+-ms-transform: skew(-45deg);
+transform: skew(-45deg);
+width: 390px !important;
+z-index: 50;
+}
+
+.appName {
+  position: relative;
+  flex: 1;
+}
+
+.flag {
+  position: relative;
+  z-index: 100;
+  vertical-align: middle;
+  height: 28px;
+}
+
+.flag.resize {
+  width: 200px;
+  height: 75px;
+  max-width: 200px;
+  max-height: 75px
+}

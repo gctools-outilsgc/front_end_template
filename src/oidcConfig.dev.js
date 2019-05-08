@@ -1,11 +1,11 @@
 const url = window.location.origin;
 
 module.exports = {
-  authority: 'https://your.OpenID.provider/openid',
-  client_id: '123456',
+  authority: 'https://dev.account.gccollab.ca/openid',
+  client_id: '016485',
   client_secret:
-  'shhhhhhhh-its-a-secret-to-everyone-replace-me',
-  scope: 'openid YOUR_SCOPES_HERE',
+  '54e3d43ef8a774d8b3bacd9fa9541e512d3f049b3a7d62a218662962',
+  scope: 'openid modify_profile email profile',
   post_logout_redirect_uri: `${url}/#!logout`,
   redirect_uri: `${url}/#!callback`,
   silent_redirect_uri: `${url}/#!silent`,

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -14,7 +15,8 @@ import { connect } from 'react-redux';
 
 // For more information on gctools-componets visit
 // https://github.com/gctools-outilsgc/gctools-components
-import Login from '@gctools-components/gc-login';
+// Login in how handled by globalnav
+// import Login from '@gctools-components/gc-login';
 import LocalizedComponent
   from '@gctools-components/react-i18n-translation-webpack';
 
@@ -28,6 +30,7 @@ import Home from './Home';
 import Info from './Info';
 import ProductPage from './examples/ProductPage';
 import Blog from './examples/Blog';
+import GlobalNav from './GlobalNav';
 
 // Assets
 import enFip from '../assets/imgs/sig-en-w.png';
@@ -44,7 +47,7 @@ export class App extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = { name: false };
+    this.state = { name: false, user: false, sidebar: false };
   }
   componentWillMount() {
     const cookies = decodeURIComponent(document.cookie).split(';');
@@ -69,12 +72,18 @@ export class App extends Component {
 
     const doLogin = (user) => {
       this.setState({ name: user.profile.name });
+      this.setState({ user: user.profile });
       onLogin(user);
     };
 
     const doLogout = () => {
       this.setState({ name: false });
       onLogout();
+    };
+
+    const setLangTest = (e) => {
+      console.log(e);
+      localizer.setLanguage(e);
     };
 
     const fip = ((localizer.lang === 'en_CA') ? enFip : frFip);
@@ -84,6 +93,8 @@ export class App extends Component {
         basename={process.env.PUBLIC_URL}
       >
         <div>
+          {
+            /*
           <Navbar className="shadow-sm nav-bg">
             <div className="h-100 directory-fip">
               <img src={fip} alt={__('Government of Canada')} />
@@ -93,27 +104,34 @@ export class App extends Component {
             </NavbarBrand>
             <Nav className="ml-auto">
               <NavItem className="mr-2">
-                <Login
-                  oidcConfig={oidcConfig}
-                  onUserLoaded={doLogin}
-                  onUserFetched={doLogin}
-                  onLogoutClick={(e, oidc) => {
-                    oidc.logout();
-                    doLogout();
-                  }}
-                >
-                  {({ onClick }) => (
-                    <Button
-                      color="light"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onClick(e);
-                      }}
-                    >
-                      {this.state.name || __('Login')}
-                    </Button>
-                  )}
-                </Login>
+                {
+                  
+                  <Login
+                    oidcConfig={oidcConfig}
+                    onUserLoaded={doLogin}
+                    onUserFetched={doLogin}
+                    onLogoutClick={(e, oidc) => {
+                      oidc.logout();
+                      doLogout();
+                    }}
+                  >
+                    {({ onClick }) => (
+                      <Button
+                        color="light"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onClick(e);
+                        }}
+                      >
+                        {this.state.name || __('Login')}
+                      </Button>
+                    )}
+                  </Login>
+                
+                }
+                <Button onClick={doLogout}>
+                  LOGOUT {this.state.name}
+                </Button>
               </NavItem>
               <NavItem>
                 <Button color="light" onClick={App.toggleLanguage}>
@@ -121,7 +139,27 @@ export class App extends Component {
                 </Button>
               </NavItem>
             </Nav>
-          </Navbar>
+          </Navbar>  
+            */
+          }
+          
+          <GlobalNav
+            minimized={this.state.sidebar ? true : false}
+            currentLang={localizer.lang}
+            onLanguageResultClick={e => setLangTest(e)}
+            currentUser={this.state.user}
+            oidcConfig={oidcConfig}
+            doLogin={doLogin}
+            currentApp={
+              {
+                id: '3',
+                name: 'GCCool',
+              }
+            }
+            onToggleResultClick={() => {
+              this.setState({ sidebar: !this.state.sidebar });
+            }}
+          />
           <main>
             {/*
                 Route to other container components using React router
