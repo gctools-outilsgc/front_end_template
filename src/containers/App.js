@@ -1,13 +1,7 @@
 /* eslint-disable */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import {
-  Button,
-  Navbar,
-  NavbarBrand,
-  Nav,
-  NavItem
-} from 'reactstrap';
+import { Button } from 'reactstrap';
 
 import GlobalNav from '@gctools-components/global-nav';
 
@@ -17,7 +11,7 @@ import { connect } from 'react-redux';
 
 // For more information on gctools-componets visit
 // https://github.com/gctools-outilsgc/gctools-components
-// Login in how handled by globalnav
+// Login is handled by parent app. Global nav will fire any login button with an html ID "login-btn"
 import Login from '@gctools-components/gc-login';
 import LocalizedComponent
   from '@gctools-components/react-i18n-translation-webpack';
@@ -32,7 +26,6 @@ import Home from './Home';
 import Info from './Info';
 import ProductPage from './examples/ProductPage';
 import Blog from './examples/Blog';
-// import GlobalNav from './GlobalNav';
 
 // Assets
 import enFip from '../assets/imgs/sig-en-w.png';
@@ -52,6 +45,9 @@ export class App extends Component {
     this.state = { name: false, user: null, sidebar: false };
   }
   componentWillMount() {
+    // TODO: Create a cookie for the global nav minimized state 
+    // + use that cookie in the sidebar state
+    // + update that cookie when the sidebar is toggled
     const cookies = decodeURIComponent(document.cookie).split(';');
     cookies
       .filter(c => c.trim().indexOf('lang=') === 0)
@@ -84,6 +80,7 @@ export class App extends Component {
       onLogout();
     };
 
+    // TODO: Write a new function to set the language cookie and the localizer
     const setLangTest = (e) => {
       console.log(e);
       localizer.setLanguage(e);
@@ -97,53 +94,10 @@ export class App extends Component {
       >
         <div>
           {
-            /*
-          <Navbar className="shadow-sm nav-bg">
-            <div className="h-100 directory-fip">
-              <img src={fip} alt={__('Government of Canada')} />
-            </div>
-            <NavbarBrand href="/" className="directory-brand">
-              <span>App Title</span>
-            </NavbarBrand>
-            <Nav className="ml-auto">
-              <NavItem className="mr-2">
-                {
-                  
-                  <Login
-                    oidcConfig={oidcConfig}
-                    onUserLoaded={doLogin}
-                    onUserFetched={doLogin}
-                    onLogoutClick={(e, oidc) => {
-                      oidc.logout();
-                      doLogout();
-                    }}
-                  >
-                    {({ onClick }) => (
-                      <Button
-                        color="light"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          onClick(e);
-                        }}
-                      >
-                        {this.state.name || __('Login')}
-                      </Button>
-                    )}
-                  </Login>
-                
-                }
-                <Button onClick={doLogout}>
-                  LOGOUT {this.state.name}
-                </Button>
-              </NavItem>
-              <NavItem>
-                <Button color="light" onClick={App.toggleLanguage}>
-                  {__('Language')}
-                </Button>
-              </NavItem>
-            </Nav>
-          </Navbar>  
-            */
+            /**
+             * TODO: look at a first time page loading / load state for the login
+             *  ex: how Slack has the login "Hey you look great today message" while loading
+             */
           }
           <Login
             oidcConfig={oidcConfig}
@@ -158,6 +112,8 @@ export class App extends Component {
               <Button
                 id="login-btn"
                 color="light"
+                className="sr-only"
+                tabIndex="-1"
                 onClick={(e) => {
                   e.stopPropagation();
                   onClick(e);
