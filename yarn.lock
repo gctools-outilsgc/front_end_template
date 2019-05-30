@@ -981,9 +981,9 @@
     react "^16.2.0"
     react-dom "^16.2.0"
 
-"@gctools-components/global-nav@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@gctools-components/global-nav/-/global-nav-0.4.3.tgz#6e018788a4d8992b8fa8212c3dfeaefe687d389b"
+"@gctools-components/global-nav@^0.4.6":
+  version "0.4.6"
+  resolved "https://registry.yarnpkg.com/@gctools-components/global-nav/-/global-nav-0.4.6.tgz#3eb2175425416dd941ee7876d3237dce06e23097"
   dependencies:
     "@babel/cli" "^7.4.3"
     "@babel/core" "^7.4.3"

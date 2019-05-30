@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 // For more information on gctools-componets visit
 // https://github.com/gctools-outilsgc/gctools-components
 // Login in how handled by globalnav
-// import Login from '@gctools-components/gc-login';
+import Login from '@gctools-components/gc-login';
 import LocalizedComponent
   from '@gctools-components/react-i18n-translation-webpack';
 
@@ -145,7 +145,28 @@ export class App extends Component {
           </Navbar>  
             */
           }
-          
+          <Login
+            oidcConfig={oidcConfig}
+            onUserLoaded={doLogin}
+            onUserFetched={doLogin}
+            onLogoutClick={(e, oidc) => {
+              oidc.logout();
+              doLogout();
+            }}
+          >
+            {({ onClick }) => (
+              <Button
+                id="login-btn"
+                color="light"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onClick(e);
+                }}
+              >
+                {this.state.name || __('Login')}
+              </Button>
+            )}
+          </Login>
           <GlobalNav
             minimized={this.state.sidebar ? true : false}
             currentLang={localizer.lang}
