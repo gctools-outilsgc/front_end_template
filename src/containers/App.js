@@ -9,6 +9,8 @@ import {
   NavItem
 } from 'reactstrap';
 
+import GlobalNav from '@gctools-components/global-nav';
+
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -30,7 +32,7 @@ import Home from './Home';
 import Info from './Info';
 import ProductPage from './examples/ProductPage';
 import Blog from './examples/Blog';
-import GlobalNav from './GlobalNav';
+// import GlobalNav from './GlobalNav';
 
 // Assets
 import enFip from '../assets/imgs/sig-en-w.png';
@@ -47,7 +49,7 @@ export class App extends Component {
   }
   constructor(props) {
     super(props);
-    this.state = { name: false, user: false, sidebar: false };
+    this.state = { name: false, user: null, sidebar: false };
   }
   componentWillMount() {
     const cookies = decodeURIComponent(document.cookie).split(';');
@@ -73,6 +75,7 @@ export class App extends Component {
     const doLogin = (user) => {
       this.setState({ name: user.profile.name });
       this.setState({ user: user.profile });
+      console.log(this.state.user);
       onLogin(user);
     };
 
@@ -154,6 +157,7 @@ export class App extends Component {
               {
                 id: '3',
                 name: 'GCCool',
+                home:'/',
               }
             }
             onToggleResultClick={() => {
