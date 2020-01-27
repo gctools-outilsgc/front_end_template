@@ -13,7 +13,7 @@ You will need to have [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnp
 
 ### Step 1 - Install
 ```
-git clone https://github.com/ethanWallace/front_end_template.git
+git clone https://github.com/gctools-outilsgc/front_end_template.git
 cd front_end_template
 yarn install
 yarn start
