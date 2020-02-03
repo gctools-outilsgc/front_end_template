@@ -79,8 +79,8 @@
     "test": "node scripts/test.js",
     "test2": "jest --rootDir . --watchPathIgnorePatterns jest.json --testURL http://localhost --config ./node_modules/@gctools-components/jest-config/index.js",
     "lint": "eslint .",
-    "predeploy": "npm run build",
-    "deploy-gh-pages": "gh-pages -d build"
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "@gctools-components",
