@@ -1,9 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 
-import LocalizedComponent
-  from '@gctools-components/react-i18n-translation-webpack';
-
 import comp from '../../assets/imgs/comp.png';
 
 const links = {
@@ -30,4 +27,4 @@ function TogetherSection() {
   );
 }
 
-export default LocalizedComponent(TogetherSection);
+export default TogetherSection;

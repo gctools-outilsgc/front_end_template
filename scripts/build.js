@@ -158,7 +158,7 @@ checkBrowsers(paths.appPath, isInteractive)
         previousFileSizes,
         paths.appBuild,
         WARN_AFTER_BUNDLE_GZIP_SIZE,
-        WARN_AFTER_CHUNK_GZIP_SIZE,
+        WARN_AFTER_CHUNK_GZIP_SIZE
       );
       console.log();
 
@@ -171,14 +171,14 @@ checkBrowsers(paths.appPath, isInteractive)
         publicUrl,
         publicPath,
         buildFolder,
-        useYarn,
+        useYarn
       );
     },
     (err) => {
       console.log(chalk.red('Failed to compile.\n'));
       printBuildError(err);
       process.exit(1);
-    },
+    }
   )
   .catch((err) => {
     if (err && err.message) {

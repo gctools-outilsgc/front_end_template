@@ -27,8 +27,6 @@ const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin');
 const ForkTsCheckerWebpackPlugin
   = require('fork-ts-checker-webpack-plugin-alt');
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter');
-const I18nTranslationWebpackPlugin =
-  require('@gctools-components/i18n-translation-webpack-plugin');
 
 
 // Source maps are resource heavy and can cause out of memory issue for large
@@ -81,7 +79,7 @@ module.exports = function webpackConfig(webpackEnv) {
         loader: MiniCssExtractPlugin.loader,
         options: Object.assign(
           {},
-          shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined,
+          shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
         ),
       },
       {
@@ -440,7 +438,7 @@ module.exports = function webpackConfig(webpackEnv) {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
-                'sass-loader',
+                'sass-loader'
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
@@ -459,7 +457,7 @@ module.exports = function webpackConfig(webpackEnv) {
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
-                'sass-loader',
+                'sass-loader'
               ),
             },
             // "file" loader makes sure those assets get served by
@@ -488,7 +486,6 @@ module.exports = function webpackConfig(webpackEnv) {
     },
     plugins: [
       // Provides automatic gettext style translation support
-      new I18nTranslationWebpackPlugin(),
       // Generates an `index.html` file with the <script> injected.
       new HtmlWebpackPlugin(Object.assign(
         {},
@@ -511,7 +508,7 @@ module.exports = function webpackConfig(webpackEnv) {
               minifyURLs: true,
             },
           }
-          : undefined,
+          : undefined
       )),
       // Inlines the webpack runtime script. This script is too small to warran
       // a network request.

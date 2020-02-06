@@ -1,9 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 
-import LocalizedComponent
-  from '@gctools-components/react-i18n-translation-webpack';
-
 import arch from '../../assets/imgs/arch.png';
 
 function StructSection() {
@@ -59,4 +56,4 @@ function StructSection() {
   );
 }
 
-export default LocalizedComponent(StructSection);
+export default StructSection;

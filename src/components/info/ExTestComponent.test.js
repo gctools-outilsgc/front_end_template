@@ -17,7 +17,7 @@ describe('ExTestComponent', () => {
     const name = queryByText('Jonald');
     expect(name.innerHTML).toBe('Jonald');
   });
-  
+
   it('renders with props', () => {
     const { queryByText } = render((
       <ExTestComponent
@@ -30,7 +30,7 @@ describe('ExTestComponent', () => {
 
   it('fires the action prop', () => {
     const fakeFunction = jest.fn();
-    const { getByText } = render ((
+    const { getByText } = render((
       <ExTestComponent
         name="Luke Skywalker"
         buttonText="Join the Dark Side?"

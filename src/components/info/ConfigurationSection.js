@@ -1,9 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'reactstrap';
 
-import LocalizedComponent
-  from '@gctools-components/react-i18n-translation-webpack';
-
 import config from '../../assets/imgs/config.png';
 
 import FileCode from './ConfigFileCode';
@@ -41,4 +38,4 @@ export function ConfigSection() {
   );
 }
 
-export default LocalizedComponent(ConfigSection);
+export default ConfigSection;
