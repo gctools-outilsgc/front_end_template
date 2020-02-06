@@ -19,6 +19,7 @@ yarn install
 yarn start
 ```
 
+The installation works best on Linux. If you are using Windows you may want to use the `no-i18n` branch and find an alternative i18n solution. Also see the linting section to fix linting errors.
 ### Step 2 - Config :wrench:
 
 If your app need to login to your OpenID authentication provider, make sure to update your `oidcConfig.dev.js` file in the `src` directory. Don't forget to add this file to your `.gitignore`.
@@ -98,6 +99,8 @@ Routes are defined in `src/containers/App.js` and should ideally route to anothe
 ### Linting :sparkles:
 
 Please keep your code pretty, or else the app will not compile! [ESLint](https://eslint.org/) is configured through [this config package](https://github.com/gctools-outilsgc/gctools-components/tree/master/packages/eslint-config). It is an extension of the [Airbnb Javascript Style Guide](https://github.com/airbnb/javascript) with some small changes.
+
+If you developing on Windows you may encounter many linting errors when first starting your app. Run `yarn eslint --fix .\src .` and try starting the app again.
 
 ### Github Pages Deployment :octocat:
 
